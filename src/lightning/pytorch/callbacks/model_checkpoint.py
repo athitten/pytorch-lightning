@@ -675,10 +675,10 @@ class ModelCheckpoint(Checkpoint):
 
         # set the last model path before saving because it will be part of the state.
         previous, self.last_model_path = self.last_model_path, filepath
-        if _is_local_file_protocol(filepath) and self._last_checkpoint_saved and self.save_top_k != 0:
-            self._link_checkpoint(trainer, self._last_checkpoint_saved, filepath)
-        else:
-            self._save_checkpoint(trainer, filepath)
+        #if _is_local_file_protocol(filepath) and self._last_checkpoint_saved and self.save_top_k != 0:
+        #    self._link_checkpoint(trainer, self._last_checkpoint_saved, filepath)
+        #else:
+        self._save_checkpoint(trainer, filepath)
         if previous and self._should_remove_checkpoint(trainer, previous, filepath):
             self._remove_checkpoint(trainer, previous)
 
